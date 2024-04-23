@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('init') {
+    stage('Build') {
       steps {
-        sh 'echo "hello-world"'
+        sh 'mvn compile'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'mvn test'
       }
     }
   }
